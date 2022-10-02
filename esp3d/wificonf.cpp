@@ -63,6 +63,10 @@ extern "C" {
 #include <time.h>
 #endif
 
+#ifdef SDCARD_FEATURE
+#include "CardReader.h"
+#endif
+
 #ifdef ESP_OLED_FEATURE
 #include "esp_oled.h"
 #endif
@@ -677,6 +681,10 @@ bool WIFI_CONFIG::Enable_servers()
 #if defined(NOTIFICATION_FEATURE)
     notificationsservice.begin();
     notificationsservice.sendAutoNotification(NOTIFICATION_ESP_ONLINE);
+#endif
+
+#if defined(SDCARD_FEATURE)
+    cardReader.begin();
 #endif
 
     return true;

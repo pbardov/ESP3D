@@ -57,6 +57,10 @@
 //NOTIFICATION_FEATURE : allow to push notifications
 #define NOTIFICATION_FEATURE
 
+#define SDCARD_FEATURE
+#define SDCARD_MMC
+#define SDCARD_SPI_PROXY
+
 //MKS TFT WIFI support see Wiki for wiring
 //#define MKS_TFT_FEATURE
 
@@ -351,7 +355,7 @@ typedef enum {
 #define EP_TARGET_FW        461 //1  bytes = flag
 #define EP_TIMEZONE         462//1  bytes = flag
 #define EP_TIME_ISDST       463//1  bytes = flag
-#define EP_TIME_SERVER1 464//128 bytes 127+1 = string  ; warning does not support multibyte char like chinese  
+#define EP_TIME_SERVER1 464//128 bytes 127+1 = string  ; warning does not support multibyte char like chinese
 #define EP_TIME_SERVER2  593 //128 bytes 127+1 = string  ; warning does not support multibyte char like chinese
 #define EP_TIME_SERVER3  722 //128 bytes 127+1 = string  ; warning does not support multibyte char like chinese
 #define EP_IS_DIRECT_SD   850//1  bytes = flag
