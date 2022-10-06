@@ -1,3 +1,6 @@
 [submodule "ESP3D-WEBUI"]
 	path = ESP3D-WEBUI
 	url = https://github.com/luc-github/ESP3D-WEBUI
+[submodule "libraries/ESPWebDAV"]
+	path = libraries/ESPWebDAV
+	url = https://github.com/pbardov/ESPWebDAV.git

@@ -58,8 +58,9 @@
 #define NOTIFICATION_FEATURE
 
 #define SDCARD_FEATURE
+#define WEBDAV_FEATURE
 #define SDCARD_MMC
-#define SDCARD_SPI_PROXY
+#define SD_SPI_PROXY_FEATURE
 
 //MKS TFT WIFI support see Wiki for wiring
 //#define MKS_TFT_FEATURE
@@ -158,9 +159,9 @@
 
 //DEBUG Flag do not do this when connected to printer !!!
 //be noted all upload may failed if enabled
-//#define DEBUG_ESP3D
+#define DEBUG_ESP3D
 //#define DEBUG_OUTPUT_SPIFFS
-//#define DEBUG_OUTPUT_SERIAL
+#define DEBUG_OUTPUT_SERIAL
 //#define DEBUG_OUTPUT_TCP
 //#define DEBUG_OUTPUT_SOCKET
 
@@ -390,6 +391,7 @@ const long DEFAULT_BAUD_RATE =          115200;
 #define DEFAULT_BEACON_INTERVAL         100
 const int DEFAULT_WEB_PORT =            80;
 const int DEFAULT_DATA_PORT =           8888;
+const int DEFAULT_DAV_PORT =            8080;
 const char DEFAULT_ADMIN_PWD []  PROGMEM =  "admin";
 const char DEFAULT_USER_PWD []  PROGMEM =   "user";
 const char DEFAULT_ADMIN_LOGIN []  PROGMEM =    "admin";

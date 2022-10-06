@@ -63,10 +63,6 @@ extern "C" {
 #include <time.h>
 #endif
 
-#ifdef SDCARD_FEATURE
-#include "CardReader.h"
-#endif
-
 #ifdef ESP_OLED_FEATURE
 #include "esp_oled.h"
 #endif
@@ -93,10 +89,16 @@ void dateTime (uint16_t* date, uint16_t* dtime)
 }
 #endif
 
+#if defined(WEBDAV_FEATURE)
+#include "cardreader.h"
+#include "webdavserver.h"
+#endif
+
 WIFI_CONFIG::WIFI_CONFIG()
 {
     iweb_port = DEFAULT_WEB_PORT;
     idata_port = DEFAULT_DATA_PORT;
+    dav_port = DEFAULT_DAV_PORT;
     baud_rate = DEFAULT_BAUD_RATE;
     sleep_mode = DEFAULT_SLEEP_MODE;
     _hostname[0] = 0;
@@ -683,8 +685,11 @@ bool WIFI_CONFIG::Enable_servers()
     notificationsservice.sendAutoNotification(NOTIFICATION_ESP_ONLINE);
 #endif
 
-#if defined(SDCARD_FEATURE)
-    cardReader.begin();
+#if defined(WEBDAV_FEATURE)
+    if (!sdcard_ready) {
+        initSdCard();
+    }
+    initWebDAVServer();
 #endif
 
     return true;

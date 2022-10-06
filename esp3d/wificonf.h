@@ -46,6 +46,7 @@ public:
     WIFI_CONFIG();
     int iweb_port;
     int idata_port;
+    int dav_port;
     long baud_rate;
     int sleep_mode;
     int32_t getSignal (int32_t RSSI);

@@ -88,6 +88,10 @@ DHTesp dht;
 #include "syncwebserver.h"
 #endif
 
+#if defined(WEBDAV_FEATURE)
+#include "davhandler.h"
+#endif
+
 //Contructor
 Esp3D::Esp3D()
 {
@@ -342,6 +346,10 @@ void Esp3D::process()
             }
         }
     }
+#endif
+
+#ifdef WEBDAV_FEATURE
+    handleDAVClient();
 #endif
 //todo use config
     CONFIG::wait(0);

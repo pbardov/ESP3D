@@ -49,6 +49,10 @@ extern DHTesp dht;
 #include "notifications_service.h"
 #endif
 
+#ifdef SDCARD_FEATURE
+#include "cardreader.h"
+#endif
+
 uint8_t CONFIG::FirmwareTarget = UNKNOWN_FW;
 byte CONFIG::output_flag = DEFAULT_OUTPUT_FLAG;
 bool  CONFIG::is_com_enabled = false;
@@ -160,8 +164,18 @@ bool  CONFIG::is_locked(byte flag)
 
 void CONFIG::InitDirectSD()
 {
+#if defined(SDCARD_FEATURE)
+#if defined(SDCARD_MMC) && defined(SD_CMD)
+    pinMode(SD_CMD, INPUT_PULLUP);
+    pinMode(SD_DATA_0, INPUT_PULLUP);
+    pinMode(SD_DATA_1, INPUT_PULLUP);
+    pinMode(SD_DATA_2, INPUT_PULLUP);
+    pinMode(SD_DATA_3, INPUT_PULLUP);
+#endif
+    CONFIG::is_direct_sd = true;
+#else
     CONFIG::is_direct_sd = false;
-
+#endif
 }
 
 bool CONFIG::DisableSerial()
@@ -1055,7 +1069,7 @@ void CONFIG::print_config (tpipe output, bool plaintext, ESPResponseStream  *esp
         if (partition) {
             flashsize = partition->size;
         }
-    } 
+    }
     ESPCOM::print (formatBytes (flashsize).c_str(), output, espresponse);
     if (!plaintext) {
         ESPCOM::print (F ("\","), output, espresponse);
@@ -1999,7 +2013,7 @@ const char * pathToFileName(const char * path)
     }
     return path+pos;
 }
-#endif //ARDUINO_ARCH_ESP8266 
+#endif //ARDUINO_ARCH_ESP8266
 
 void log_socket(const char *format, ...){
     if(socket_server){
