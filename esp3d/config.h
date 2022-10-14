@@ -164,8 +164,8 @@
 //be noted all upload may failed if enabled
 #define DEBUG_ESP3D
 //#define DEBUG_OUTPUT_SPIFFS
-#define DEBUG_OUTPUT_SERIAL
-//#define DEBUG_OUTPUT_TCP
+// #define DEBUG_OUTPUT_SERIAL
+#define DEBUG_OUTPUT_TCP
 //#define DEBUG_OUTPUT_SOCKET
 
 //Sanity check
