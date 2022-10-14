@@ -90,6 +90,7 @@ DHTesp dht;
 
 #if defined(WEBDAV_FEATURE)
 #include "davhandler.h"
+#include "sdproxy_handler.h"
 #endif
 
 //Contructor
@@ -350,6 +351,7 @@ void Esp3D::process()
 
 #ifdef WEBDAV_FEATURE
     handleDAVClient();
+    handleSDProxy();
 #endif
 //todo use config
     CONFIG::wait(0);

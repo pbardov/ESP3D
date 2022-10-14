@@ -165,13 +165,6 @@ bool  CONFIG::is_locked(byte flag)
 void CONFIG::InitDirectSD()
 {
 #if defined(SDCARD_FEATURE)
-#if defined(SDCARD_MMC) && defined(SD_CMD)
-    pinMode(SD_CMD, INPUT_PULLUP);
-    pinMode(SD_DATA_0, INPUT_PULLUP);
-    pinMode(SD_DATA_1, INPUT_PULLUP);
-    pinMode(SD_DATA_2, INPUT_PULLUP);
-    pinMode(SD_DATA_3, INPUT_PULLUP);
-#endif
     CONFIG::is_direct_sd = true;
 #else
     CONFIG::is_direct_sd = false;

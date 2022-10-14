@@ -92,6 +92,7 @@ void dateTime (uint16_t* date, uint16_t* dtime)
 #if defined(WEBDAV_FEATURE)
 #include "cardreader.h"
 #include "webdavserver.h"
+#include "sdproxy.h"
 #endif
 
 WIFI_CONFIG::WIFI_CONFIG()

@@ -60,7 +60,10 @@
 #define SDCARD_FEATURE
 #define WEBDAV_FEATURE
 #define SDCARD_MMC
-#define SD_SPI_PROXY_FEATURE
+#define SPI_PROXY_SCK  27 // SPI Slave pins maping
+#define SPI_PROXY_MISO 26
+#define SPI_PROXY_MOSI 25
+#define SPI_PROXY_SS   33
 
 //MKS TFT WIFI support see Wiki for wiring
 //#define MKS_TFT_FEATURE
