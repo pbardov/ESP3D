@@ -6,4 +6,4 @@
 	url = https://github.com/pbardov/ESPWebDAV.git
 [submodule "libraries/ESP32SPISlave"]
 	path = libraries/ESP32SPISlave
-	url = https://github.com/hideakitai/ESP32SPISlave.git
+	url = https://github.com/pbardov/ESP32SPISlave.git

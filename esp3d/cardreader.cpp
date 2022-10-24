@@ -25,7 +25,8 @@ bool initSdCard() {
 #ifdef SD_DATA_3
     pinMode(SD_DATA_3, INPUT_PULLUP);
 #endif
-    sdcard_ready = SD_DRV.begin("/sdcard", false, false, SDMMC_FREQ_DEFAULT, 5);
+    // sdcard_ready = SD_DRV.begin("/sdcard", false, false, SDMMC_FREQ_DEFAULT, 5); // newest library version
+    sdcard_ready = SD_DRV.begin("/sdcard", false, false, SDMMC_FREQ_DEFAULT);
 #else
     sdcard_ready = SD_DRV.begin(); // NOT TESTED YET
 #endif

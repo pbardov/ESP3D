@@ -691,7 +691,9 @@ bool WIFI_CONFIG::Enable_servers()
         initSdCard();
     }
     initWebDAVServer();
-    sdproxy.init();
+    if (sdproxy.init()) {
+        sdproxy.start();
+    }
 #endif
 
     return true;

@@ -55,7 +55,7 @@ char CRC7(const void* data, int length)
     for (int i = 0; i < length; i++) {
         crc = m_CRC7Table[(crc << 1) ^ reinterpret_cast<const char *>(data)[i]];
     }
-    return crc;
+    return (crc << 1) | 1;
 }
 
 const unsigned short m_CRC16Table[256] = {
